@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Job Search Dashboard</title>
+  <!-- Tailwind CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+
+  <!-- Navbar -->
+  <nav class="bg-white p-4 shadow-lg sticky top-0">
+    <ul class="flex space-x-4">
+      <li><a href="#job-search-section" class="text-blue-500 hover:text-blue-700">Job Search</a></li>
+      <li><a href="#job-listings-section" class="text-blue-500 hover:text-blue-700">Job Listings</a></li>
+      <li><a href="#application-tracker-section" class="text-blue-500 hover:text-blue-700">Application Tracker</a></li>
+    </ul>
+  </nav>
+
+  <!-- Container -->
+  <div class="container mx-auto py-8">
+
+    <!-- Job Search Section -->
+    <section id="job-search-section" class="mb-10">
+      <h1 class="text-3xl font-bold text-center mb-8">Interactive Job Search Dashboard</h1>
+
+      <!-- Job Search Form -->
+      <div class="mb-6">
+        <form id="job-search-form" class="flex space-x-4">
+          <input type="text" id="keyword" placeholder="Keyword (e.g., Developer, Designer)" class="w-full p-2 border border-gray-300 rounded" autocomplete="off">
+          <input type="text" id="location" placeholder="Location (e.g., Mumbai, Bangalore)" class="w-full p-2 border border-gray-300 rounded">
+          <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Search</button>
+        </form>
+        <div id="suggestions" class="mt-2 hidden"></div>
+      </div>
+    </section>
+
+    <!-- Job Listings Section -->
+    <section id="job-listings-section" class="mb-10">
+      <h2 class="text-2xl font-bold">Job Listings</h2>
+      <div id="job-listings" class="mt-4 space-y-4">
+        <!-- Job cards will be added here dynamically -->
+      </div>
+    </section>
+
+    <!-- Application Tracker Section -->
+    <section id="application-tracker-section" class="mb-10">
+      <h2 class="text-2xl font-bold">Application Tracker</h2>
+      <div id="application-tracker" class="mt-4 space-y-2">
+        <!-- Tracked jobs will appear here dynamically -->
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Job Details Modal -->
+  <div id="job-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+    <div class="bg-white p-8 rounded shadow-lg">
+      <h3 id="job-title" class="text-xl font-bold"></h3>
+      <p id="job-company" class="text-gray-700 mt-2"></p>
+      <p id="job-description" class="mt-4"></p>
+      <button id="close-modal" class="mt-4 bg-red-500 text-white px-4 py-2 rounded">Close</button>
+    </div>
+  </div>
+
+  <!-- jQuery and Script -->
+  <script src="script.js"></script>
+</body>
+</html>
